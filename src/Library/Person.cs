@@ -4,15 +4,18 @@ namespace UnitTestAndDebug
 {
     public class Person
     {
-        public Person(string name, string id)
+        public Person(string name, string id, int fechaNac)
         {
             this.Name = name;
             this.ID = id;
+            this.FechaNac = fechaNac; 
         }
 
         private string name;
 
         private string id;
+
+        private int fechaNac; 
 
         public string Name
         {
@@ -45,9 +48,24 @@ namespace UnitTestAndDebug
             }
         }
 
+        public int FechaNac
+        {
+            get
+            {
+                return this.fechaNac; 
+            }
+            set
+            {
+                if (value>1900)
+                {
+                    this.fechaNac=value; 
+                }
+            }
+        }
+
         public void IntroduceYourself()
         {
-            Console.WriteLine($"Soy {this.Name} y mi cédula es {this.ID}");
+            Console.WriteLine($"Soy {this.Name} y mi cédula es {this.ID}. Nací en el año {this.FechaNac}");
         }
     }
 }
